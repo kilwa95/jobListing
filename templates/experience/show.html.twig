@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+ <!-- start banner Area -->
+ <section class="banner-area relative" id="home">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+   <div class="row d-flex align-items-center justify-content-center">
+    <div class="about-content col-lg-12">
+     <h1 class="text-white">
+      all experience
+     </h1>
+     <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="single.html"> Job Details</a></p>
+    </div>
+   </div>
+  </div>
+ </section>
+ <h1>all experiences</h1>
+ <!-- End banner Area -->
+{% for experience in user.Exprience %}
+ <h1>{{ experience.id}}</h1>
+ <h1>{{ experience.companyName}}</h1>
+ {% endfor %}
+{% endblock %}
+

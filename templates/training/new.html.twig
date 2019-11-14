@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}news kille!{% endblock %}
+
+{% block body %}
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        new training
+                    </h1>
+                    <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="single.html"> Job Details</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+
+    <!-- Start contact-page Area -->
+    <section class="contact-page-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 d-flex flex-column">
+                    <a class="contact-btns" href="#">edit experience</a>
+                    <a class="contact-btns" href="#">showexperience</a>
+                    <a class="contact-btns" href="#">edit experience</a>
+                </div>
+
+                <div class="col-lg-8">
+                    <h1>add training</h1> <br>
+                    {{ form_start(form, {'attr': {'class': 'form-area'}}) }}
+                    <div class="row">
+                        <div class="col-lg-9 form-group">
+
+
+                            {{ form_label(form.diplome) }}
+                            {{ form_widget(form.diplome ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.diplome) }}
+                            {{ form_errors(form.diplome) }}
+
+
+                            {{ form_label(form.ecole) }}
+                            {{ form_widget(form.ecole,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.ecole) }}
+                            {{ form_errors(form.ecole) }}
+
+                            {{ form_label(form.domaine) }}
+                            {{ form_widget(form.domaine,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.domaine) }}
+                            {{ form_errors(form.domaine) }}
+
+                            {{ form_label(form.periodeAt) }}
+                            {{ form_widget(form.periodeAt,{'attr': {'class': 'common-input mb-20 '}}) }}
+                            {{ form_help(form.periodeAt) }}
+                            {{ form_errors(form.periodeAt) }}
+
+                            {{ form_label(form.ville) }}
+                            {{ form_widget(form.ville,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.ville) }}
+                            {{ form_errors(form.ville) }}
+
+
+                            <button class="primary-btn mt-20 text-white" style="float: right;">add</button>
+                            <div class="mt-20 alert-msg" style="text-align: left;"></div>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End contact-page Area -->
+{% endblock %}

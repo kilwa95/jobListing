@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OffreController!{% endblock %}
+
+{% block body %}
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        post Job
+                    </h1>
+                    <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="single.html"> Job Details</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
+
+
+    <!-- Start contact-page Area -->
+    <section class="contact-page-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 d-flex flex-column">
+                    <a class="contact-btns" href="#">Submit Your CV</a>
+                    <a class="contact-btns" href="#">Post New Job</a>
+                </div>
+
+
+                <div class="col-lg-8">
+                    <h1>Post Job</h1> <br>
+                    {{ form_start(form, {'attr': {'class': 'form-area'}}) }}
+                    <div class="row">
+                        <div class="col-lg-10 form-group">
+
+                            {{ form_label(form.nom_entreprise) }}
+                            {{ form_widget(form.nom_entreprise ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.nom_entreprise) }}
+                            {{ form_errors(form.nom_entreprise) }}
+
+                            {{ form_label(form.intiule_de_post) }}
+                            {{ form_widget(form.intiule_de_post ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.intiule_de_post) }}
+                            {{ form_errors(form.intiule_de_post) }}
+
+
+                            {{ form_label(form.taille) }}
+                            {{ form_widget(form.taille ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.taille) }}
+                            {{ form_errors(form.taille) }}
+
+
+                            {{ form_label(form.description) }}
+                            {{ form_widget(form.description ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.description) }}
+                            {{ form_errors(form.description) }}
+
+
+                            {{ form_label(form.publishedAt) }}
+                            {{ form_widget(form.publishedAt ,{'attr': {'class': 'common-input mb-20 '}}) }}
+                            {{ form_help(form.publishedAt) }}
+                            {{ form_errors(form.publishedAt) }}
+
+                            {{ form_label(form.taille )}}
+                            {{ form_widget(form.taille,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.taille) }}
+                            {{ form_errors(form.taille) }}
+
+                            {{ form_label(form.lieu) }}
+                            {{ form_widget(form.lieu,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.lieu) }}
+                            {{ form_errors(form.lieu) }}
+
+
+                            {{ form_label(form.Category) }}
+                            {{ form_widget(form.Category,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.Category) }}
+                            {{ form_errors(form.Category) }}
+
+                            {{ form_label(form.type_emploi) }}
+                            {{ form_widget(form.type_emploi ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.type_emploi) }}
+                            {{ form_errors(form.type_emploi) }}
+
+                            <button class="primary-btn mt-20 text-white" style="float: right;">Post</button>
+                            <div class="mt-20 alert-msg" style="text-align: left;"></div>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End contact-page Area -->
+{% endblock %}
