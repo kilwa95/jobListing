@@ -10,18 +10,48 @@
    <div class="row d-flex align-items-center justify-content-center">
     <div class="about-content col-lg-12">
      <h1 class="text-white">
-      all experience
+     <h1>all experiences </h1>
      </h1>
      <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="single.html"> Job Details</a></p>
     </div>
    </div>
   </div>
  </section>
- <h1>all experiences</h1>
- <!-- End banner Area -->
-{% for experience in user.Exprience %}
- <h1>{{ experience.id}}</h1>
- <h1>{{ experience.companyName}}</h1>
- {% endfor %}
+
+ <table class="table table-hover"><br>
+<h1> ALL expriences de {{ app.user.firstName }}</h1><br>
+
+<a  class="btn btn-danger" href="{{ path('experience_new' )}}">create new exprience</a><br><br>
+
+  <thead class="thead-dark">
+  <tr>
+   <th scope="col">jobTitle</th>
+   <th scope="col">comppanyName</th>
+   <th scope="col">description</th>
+   <th scope="col">ville</th>
+   <th scope="col">update</th>
+   <th scope="col">delete</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  {% for experience in user.Exprience %}
+  <tr>
+   <td>{{ experience.jobTitle }}</td>
+   <td>{{ experience.companyName }}</td>
+   <td>{{ experience.description }}</td>
+   <td>{{ experience.ville}}</td>
+
+   <td><a class="btn btn-primary" href="{{ path('experience_edit', {'id': experience.id}) }}">edit</a><br> </td>
+   <td>    {{ include('experience/_delete_form.html.twig') }} </td>
+
+  </tr>
+  {% endfor %}
+  </tbody>
+ </table><br><br>
+
+
+
 {% endblock %}
 

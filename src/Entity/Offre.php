@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Service\UploaderHelper;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -64,6 +65,11 @@ class Offre
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="offres")
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
 
 
@@ -195,6 +201,23 @@ class Offre
         return (string) $this->getTypeEmploi();
 
 
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getImagePath()
+    {
+        return 'uploads/'.UploaderHelper::OFFRE_IMAGE.'/'.$this->getImage();
     }
 
 

@@ -52,7 +52,7 @@
                         {% if is_granted('ROLE_CANDIDAT')  %}
                             <li class="menu-has-children"><a href="">add Cv</a>
                                 <ul>
-                                    <li><a href="{{ path('experience_new') }}">experience</a></li>
+                                    <li><a href="{{ path('experience_show', {'id': app.user.id}) }}) }}">experience</a></li>
                                     <li><a href="{{ path('location_new') }}">Location</a></li>
                                     <li><a href="{{ path('skill_new') }}">skilles</a></li>
                                     <li><a href="{{ path('training_new') }}">trainig</a></li>
@@ -201,6 +201,15 @@
     <script src="{{ asset('asset/js/parallax.min.js') }}"></script>
     <script src="{{ asset('asset/js/mail-script.js') }}"></script>
     <script src="{{ asset('asset/js/main.js') }}"></script>
+
+    <script>
+        $('.custom-file-input').on('change', function(event) {
+            var inputFile = event.currentTarget;
+            $(inputFile).parent()
+                .find('.custom-file-label')
+                .html(inputFile.files[0].name);
+        });
+    </script>
 
 {% endblock %}
 </body>

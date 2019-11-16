@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Offre;
 use App\Form\OffreType;
+use App\Service\UploaderHelper;
 use Doctrine\ORM\EntityManagerInterface;
+use Gedmo\Sluggable\Util\Urlizer;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,7 +24,7 @@ class OffreController extends AbstractController
     /**
      * @Route("/offre/add", name="offre_add")
      */
-    public function add(EntityManagerInterface $entityManager,Request $request)
+    public function add(EntityManagerInterface $entityManager,Request $request, UploaderHelper $uploaderHelper)
     {
         $offre = new Offre();
         $user =$this->getUser();
@@ -30,6 +33,17 @@ class OffreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            /** @var UploadedFile $uploadedFile */
+             $uploadedFile = $form['image']->getData();
+
+             if ($uploadedFile) {
+                $newFilename = $uploaderHelper->uploadOffreImage($uploadedFile);
+                $offre->setImage($newFilename);
+
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($offre);
             $entityManager->flush();

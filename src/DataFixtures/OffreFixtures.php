@@ -3,15 +3,25 @@
 namespace App\DataFixtures;
 
 use App\Entity\Category;
-use App\Entity\Niveux;
 use App\Entity\Offre;
 use App\Entity\TypeEmploi;
 use App\Entity\Ville;
+use App\Service\UploaderHelper;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
 
 class OffreFixtures extends Fixture
 {
+
+
+    private $uploaderHelper;
+
+    public function __construct(UploaderHelper $uploaderHelper)
+    {
+        $this->uploaderHelper = $uploaderHelper;
+    }
 
     public function load(ObjectManager $manager)
     {
@@ -97,6 +107,7 @@ class OffreFixtures extends Fixture
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
             $offre->setCategory($cateory1);
+           // $offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setTypeEmploi($emploi1);
             $offre->setDescription($faker->realText(200));
             $offre->setIntiuleDePost($faker->jobTitle);
@@ -113,6 +124,14 @@ class OffreFixtures extends Fixture
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
             $offre->setCategory($cateory2);
+            //$imageFile=$faker->image('null','109','69');
+
+            //$fs = new Filesystem();
+            //$targetPath = sys_get_temp_dir().'/'.$imageFile;
+            //$fs->copy(__DIR__.'/images/'.$imageFile, $targetPath, true);
+            //$image = $this->uploaderHelper->uploadOffreImage(new File($targetPath));
+
+            //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setTypeEmploi($emploi2);
             $offre->setDescription($faker->realText(200));
             $offre->setIntiuleDePost($faker->jobTitle);
@@ -128,6 +147,7 @@ class OffreFixtures extends Fixture
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
             $offre->setCategory($cateory3);
+            //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setTypeEmploi($emploi3);
             $offre->setDescription($faker->realText(200));
             $offre->setIntiuleDePost($faker->jobTitle);
@@ -145,6 +165,7 @@ class OffreFixtures extends Fixture
             $offre = new Offre();
             $offre->setCategory($cateory4);
             $offre->setTypeEmploi($emploi1);
+            //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setDescription($faker->realText(200));
             $offre->setIntiuleDePost($faker->jobTitle);
             $offre->setLieu($faker->country);
@@ -160,6 +181,7 @@ class OffreFixtures extends Fixture
             $offre = new Offre();
             $offre->setCategory($cateory5);
             $offre->setTypeEmploi($emploi2);
+            //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setDescription($faker->realText(200));
             $offre->setIntiuleDePost($faker->jobTitle);
             $offre->setLieu($faker->country);
@@ -175,6 +197,7 @@ class OffreFixtures extends Fixture
             $offre = new Offre();
             $offre->setCategory($cateory6);
             $offre->setTypeEmploi($emploi3);
+            //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setDescription($faker->realText(200));
             $offre->setIntiuleDePost($faker->jobTitle);
             $offre->setLieu($faker->country);

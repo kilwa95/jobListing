@@ -85,6 +85,13 @@
                             {{ form_help(form.type_emploi) }}
                             {{ form_errors(form.type_emploi) }}
 
+                            {{ form_row(form.image, {
+                                'attr': {
+                                    'placeholder': 'Select an offre image'
+                                }
+                            }) }}
+
+
                             <button class="primary-btn mt-20 text-white" style="float: right;">Post</button>
                             <div class="mt-20 alert-msg" style="text-align: left;"></div>
                         </div>
