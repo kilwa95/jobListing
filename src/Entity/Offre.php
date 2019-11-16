@@ -196,12 +196,7 @@ class Offre
         return $this;
     }
 
-    public function __toString()
-    {
-        return (string) $this->getTypeEmploi();
 
-
-    }
 
     public function getImage(): ?string
     {
@@ -220,7 +215,10 @@ class Offre
         return 'uploads/'.UploaderHelper::OFFRE_IMAGE.'/'.$this->getImage();
     }
 
-
+    public function __toString()
+    {
+        return $this->nom_entreprise;
+    }
 
 
 }

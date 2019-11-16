@@ -122,4 +122,9 @@ class Experience
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getCompanyName()?:$this->getDescription()?:$this->getJobTitle();
+    }
 }

@@ -6,40 +6,62 @@ easy_admin:
     site_name: 'Job Alert <em style="font-size: 80%;"></em>'
     design:
       assets:
-          css:
-            - 'assert/css/admin.css'
+        css: ['admin/custom_backend.css']
+      menu:
+        - {entity: 'User', icon: 'user',target: '_self',default: true }
+        - {entity: 'Ville', icon: 'blog',target: '_self',default: true }
+
+        - label: 'CV'
+          icon: 'newspaper-o'
+          children:
+            - {entity: 'Experience', icon: 'tag'}
+            - {entity: 'Location', icon: 'tag'}
+            - {entity: 'Skill', icon: 'tag'}
+            - {entity: 'Training' , icon: 'tag'}
+
+        - label: 'Offre'
+          icon: 'newspaper-o'
+          children:
+            - {entity: 'Category', icon: 'inbox'}
+            - {entity: 'typeEmploi', icon: 'inbox'}
 
 
 
-    list:
-      title: 'List of %%entity_label%%'
-      actions: ['show']
+
+
+
+
 
     entities:
         User:
           class: App\Entity\User
-          export_path: '%kernel.project_dir/var/export/user'
-          password_encoding: { algorithm: 'bcrypt', cost: 12 }
-          label: users
-          help: 'list of all candidat'
+          form:
+          new:
+            form_options: { validation_groups: ['Default', 'Customer'] }
+          edit:
+            title:  'Edit user'
+
+          help: 'Global message displayed in all views'
+
+          show:
+            title: '%%entity_label%% (#%%entity_id%%)'
+
+          search:
+
           list:
-              help: 'do not feed!'
-              fields:
-                - id
-                - { property: 'firstName', trans: true, domain: 'messages',icon: 'user' }
-                - { property: 'lastName',icon: 'user' }
-                - { property: 'phone',type: 'tel'  }
-                - { property: 'email', type: 'email' }
-                - roles
+            fields:
+              - id
+              - { property: 'firstName', type: 'text' }
+              - { property: 'lastName', type: 'text' }
+              - { property: 'phone', type: 'tel' }
+              - { property: 'email', label: 'email', type: 'email' , type_options: { trim: true }}
 
-
-
-
-              actions:
-                  - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                  - { name: 'show', icon: 'info-circle', label: 'show' }
-                  - { name: 'delete', label: 'delete' }
-
+            max_results: 30
+            title: '%%entity_label%% listing'
+            actions:
+              - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+              - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+              - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
 
 
 
@@ -59,15 +81,7 @@ easy_admin:
 
         Category:
           class: App\Entity\Category
-          help: 'Global message displayed in all views'
-          list:
-            max_results:
-            title: '%%entity_label%% listing'
-          show:
-            max_results:
-            title: '%%entity_label%% (#%%entity_id%%)'
         typeEmploi:
-
           class: App\Entity\typeEmploi
 
 

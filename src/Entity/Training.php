@@ -122,4 +122,11 @@ class Training
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getDiplome()?:$this->getDomaine()?:$this->getEcole();
+    }
+
+
 }

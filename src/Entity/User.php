@@ -219,11 +219,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function __toString()
-    {
-        return (string) $this->getFirstName() ? $this->getUsername() : $this->getEmail();
-
-    }
 
     /**
      * @return Collection|Offre[]
@@ -380,6 +375,12 @@ class User implements UserInterface
         $this->adresse = $adresse;
 
         return $this;
+    }
+
+
+    public function __toString()
+    {
+        return $this->getEmail()?:$this->getFirstName()?:$this->getLastName();
     }
 
 
