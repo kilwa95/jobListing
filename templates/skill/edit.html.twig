@@ -3,11 +3,61 @@
 {% block title %}Edit Skill{% endblock %}
 
 {% block body %}
-    <h1>Edit Skill</h1>
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        new skille
+                    </h1>
+                    <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="single.html"> Job Details</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End banner Area -->
 
-    {{ include('skill/_form.html.twig', {'button_label': 'Update'}) }}
+    <!-- Start contact-page Area -->
+    <section class="contact-page-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 d-flex flex-column">
+                    <a class="contact-btns" href="#">edit experience</a>
+                    <a class="contact-btns" href="#">showexperience</a>
+                    <a class="contact-btns" href="#">edit experience</a>
+                </div>
 
-    <a href="{{ path('skill_index') }}">back to list</a>
+                <div class="col-lg-8">
+                    <h1>add skills</h1> <br>
+                    {{ form_start(form, {'attr': {'class': 'form-area'}}) }}
+                    <div class="row">
+                        <div class="col-lg-9 form-group">
 
-    {{ include('skill/_delete_form.html.twig') }}
+
+                            {{ form_label(form.skille) }}
+                            {{ form_widget(form.skille ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.skille) }}
+                            {{ form_errors(form.skille) }}
+
+
+                            {{ form_label(form.expertise) }}
+                            {{ form_widget(form.expertise,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                            {{ form_help(form.expertise) }}
+                            {{ form_errors(form.expertise) }}
+
+
+
+
+                            <button class="primary-btn mt-20 text-white" style="float: right;">add</button>
+                            <div class="mt-20 alert-msg" style="text-align: left;"></div>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End contact-page Area -->
 {% endblock %}

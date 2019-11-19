@@ -7,9 +7,12 @@ easy_admin:
     design:
       assets:
         css: ['admin/custom_backend.css']
+        js:
+          - 'https://unpkg.com/snarkdown@1.2.2/dist/snarkdown.umd.js'
+          - 'js/custom_backend.js'
       menu:
         - {entity: 'User', icon: 'user',target: '_self',default: true }
-        - {entity: 'Ville', icon: 'blog',target: '_self',default: true }
+        - {entity: 'Ville', icon: 'dashboard',target: '_self',default: true }
 
         - label: 'CV'
           icon: 'newspaper-o'
@@ -20,14 +23,10 @@ easy_admin:
             - {entity: 'Training' , icon: 'tag'}
 
         - label: 'Offre'
-          icon: 'newspaper-o'
+          icon: 'th-list'
           children:
             - {entity: 'Category', icon: 'inbox'}
             - {entity: 'typeEmploi', icon: 'inbox'}
-
-
-
-
 
 
 

@@ -1,0 +1,216 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- start banner Area -->
+    <section class="banner-area relative" id="home">
+        <div class="overlay overlay-bg"></div>
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="about-content col-lg-12">
+                    <h1 class="text-white">
+                        <h1 class="text-white">Mon CV</h1>
+                    </h1>
+                    <p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="single.html"> Job Details</a></p>
+                </div>
+            </div>
+        </div>
+    </section><br><br>
+
+    <div class="container">
+        <h1>coordonées</h1><br>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>id</th>
+                <td>{{ app.user.id }}</td>
+            </tr>
+            <tr>
+                <th>email</th>
+                <td>{{ app.user.email}}</td>
+            </tr>
+            <tr>
+                <th>firstName</th>
+                <td>{{ app.user.firstName}}</td>
+            </tr>
+
+            <tr>
+                <th>lastname</th>
+                <td>{{ app.user.lastName }}</td>
+            </tr>
+
+            <tr>
+                <th>phone</th>
+                <td>{{ app.user.phone}}</td>
+            </tr>
+
+            <tr>
+                <th>adresse</th>
+                <td>{{ app.user.adresse}}</td>
+            </tr>
+
+            </tbody>
+        </table><br>
+    </div>
+
+    <div class="container">
+        <h1>Location</h1><br>
+        <a class="btn btn-primary fa fa-plus-square  " href="{{ path('location_new' )}}"></a><br><br>
+
+        <div class="container">
+            <table class="table">
+                <tbody>
+                <tr>
+                    {% if user.location is not null %}
+                        <th>adresse</th>
+                        <td>{{ user.location.adresse}}</td>
+
+                    {% endif %}
+                </tr>
+
+                <tr>
+                    {% if user.location is not null %}
+                        <th>postalCode</th>
+                        <td>{{ user.location.postalCode}}</td>
+                    {% endif %}
+
+                </tr>
+
+
+                <tr>
+                    {% if user.location is not null %}
+                        <th>ville</th>
+                        <td>{{ user.location.ville}}</td>
+                    {% endif %}
+
+                </tr>
+
+                </tbody>
+            </table><br>
+        </div>
+    </div>
+
+
+    <div class="container">
+    <h1>Exprience</h1><br>
+    <a class="btn btn-primary fa fa-plus-square  " href="{{ path('experience_new' )}}"></a><br><br>
+    </div>
+    {% for experience in user.Exprience %}
+
+    <div class="container">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>jobTitle</th>
+                <td>{{ experience.jobTitle }}</td>
+            </tr>
+            <tr>
+                <th>companyName</th>
+                <td>{{ experience.companyName }}</td>
+            </tr>
+            <tr>
+                <th>description</th>
+                <td>{{ experience.description }}</td>
+            </tr>
+
+            <tr>
+                <th>ville</th>
+                <td>{{ experience.ville }}</td>
+            </tr>
+            <tr>
+
+                <td> <a class=" btn btn-success fa fa-pencil fa-2x" href="{{ path('experience_edit', {'id': experience.id}) }}"></a>  </td>
+                <td>{{ include('experience/_delete_form.html.twig') }}</td>
+            </tr>
+            </tbody>
+        </table><br>
+    </div>
+
+    {% endfor %}
+
+
+
+
+    <div class="container">
+        <h1>Training</h1><br>
+        <a class="btn btn-primary fa fa-plus-square  " href="{{ path('training_new' )}}"></a><br><br>
+    </div>
+        {% for training in user.training %}
+
+            <div class="container">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>diplome</th>
+                        <td>{{ training.diplome }}</td>
+                    </tr>
+                    <tr>
+                        <th>ecole</th>
+                        <td>{{ training.ecole }}</td>
+                    </tr>
+                    <tr>
+                        <th>domaine</th>
+                        <td>{{ training.domaine }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>ville</th>
+                        <td>{{training.ville }}</td>
+                    </tr>
+
+
+                    <tr>
+                        <th>periode</th>
+                        <td>{{training.periodeAt|date("m/d/Y")}}</td>
+                    </tr>
+
+                    <tr>
+
+                        <td> <a class=" btn btn-success fa fa-pencil fa-2x" href="{{ path('training_edit', {'id': training.id}) }}"></a>  </td>
+                        <td>{{ include('training/_delete_form.html.twig') }}</td>
+                    </tr>
+                    </tbody>
+                </table><br>
+            </div>
+
+        {% endfor %}
+
+
+
+
+    <div class="container">
+        <h1>skille</h1><br>
+        <a class="btn btn-primary fa fa-plus-square  " href="{{ path('skill_new' )}}"></a><br><br>
+    </div>
+    {% for skill in user.skilles %}
+
+        <div class="container">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>skille</th>
+                    <td>{{ skill.skille }}</td>
+                </tr>
+                <tr>
+                    <th>expertise</th>
+                    <td>{{ skill.expertise}}</td>
+                </tr>
+
+                <tr>
+
+                    <td> <a class=" btn btn-success fa fa-pencil fa-2x" href="{{ path('skill_edit', {'id': skill.id}) }}"></a>  </td>
+                    <td>{{ include('skill/_delete_form.html.twig') }}</td>
+                </tr>
+                </tbody>
+            </table><br>
+        </div>
+
+    {% endfor %}
+
+
+
+</div>
+{% endblock %}

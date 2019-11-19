@@ -41,7 +41,7 @@ class SkillController extends AbstractController
             $entityManager->persist($skill);
             $entityManager->flush();
 
-            return $this->redirectToRoute('skill_index');
+            return $this->redirectToRoute('cv_show',['id' => $user->getId()]);
         }
 
         return $this->render('skill/new.html.twig', [

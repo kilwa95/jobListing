@@ -62,17 +62,20 @@ class OffreFixtures extends Fixture
 
 
 
+
         for ($i = 0; $i < 1; $i++) {
             $cateory1 = new Category();
             $cateory1->setNom("Development");
             $manager->persist( $cateory1);
             $manager->flush();
+            $cateogrys[] = $cateory1;
         }
         for ($i = 0; $i < 1; $i++) {
             $cateory2 = new Category();
             $cateory2->setNom("Accounting");
             $manager->persist( $cateory2);
             $manager->flush();
+            $cateogrys[] = $cateory2;
         }
 
         for ($i = 0; $i < 1; $i++) {
@@ -80,6 +83,7 @@ class OffreFixtures extends Fixture
             $cateory3->setNom("Technology");
             $manager->persist( $cateory3);
             $manager->flush();
+            $cateogrys[] = $cateory3;
         }
 
         for ($i = 0; $i < 1; $i++) {
@@ -87,12 +91,14 @@ class OffreFixtures extends Fixture
             $cateory4->setNom("Media & News");
             $manager->persist( $cateory4);
             $manager->flush();
+            $cateogrys[] = $cateory4;
         }
         for ($i = 0; $i < 1; $i++) {
             $cateory5 = new Category();
             $cateory5->setNom("Medical");
             $manager->persist( $cateory5);
             $manager->flush();
+            $cateogrys[] = $cateory5;
         }
 
         for ($i = 0; $i < 1; $i++) {
@@ -100,13 +106,15 @@ class OffreFixtures extends Fixture
             $cateory6->setNom("Goverment");
             $manager->persist( $cateory6);
             $manager->flush();
+            $cateogrys[] = $cateory6;
         }
 
 
 
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
-            $offre->setCategory($cateory1);
+            $cat = $cateogrys[mt_rand(0,count($cateogrys)-1)];
+            $offre->setCategory($cat);
            // $offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setTypeEmploi($emploi1);
             $offre->setDescription($faker->realText(200));
@@ -123,7 +131,8 @@ class OffreFixtures extends Fixture
 
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
-            $offre->setCategory($cateory2);
+            $cat = $cateogrys[mt_rand(0,count($cateogrys)-1)];
+            $offre->setCategory($cat);
             //$imageFile=$faker->image('null','109','69');
 
             //$fs = new Filesystem();
@@ -146,7 +155,8 @@ class OffreFixtures extends Fixture
         }
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
-            $offre->setCategory($cateory3);
+            $cat = $cateogrys[mt_rand(0,count($cateogrys)-1)];
+            $offre->setCategory($cat);
             //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setTypeEmploi($emploi3);
             $offre->setDescription($faker->realText(200));
@@ -163,7 +173,8 @@ class OffreFixtures extends Fixture
 
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
-            $offre->setCategory($cateory4);
+            $cat = $cateogrys[mt_rand(0,count($cateogrys)-1)];
+            $offre->setCategory($cat);
             $offre->setTypeEmploi($emploi1);
             //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setDescription($faker->realText(200));
@@ -179,7 +190,8 @@ class OffreFixtures extends Fixture
         }
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
-            $offre->setCategory($cateory5);
+            $cat = $cateogrys[mt_rand(0,count($cateogrys)-1)];
+            $offre->setCategory($cat);
             $offre->setTypeEmploi($emploi2);
             //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setDescription($faker->realText(200));
@@ -195,7 +207,8 @@ class OffreFixtures extends Fixture
         }
         for ($i = 0; $i <10; $i++) {
             $offre = new Offre();
-            $offre->setCategory($cateory6);
+            $cat = $cateogrys[mt_rand(0,count($cateogrys)-1)];
+            $offre->setCategory($cat);
             $offre->setTypeEmploi($emploi3);
             //$offre->setImage($faker->image(__DIR__.'/images','109','69'));
             $offre->setDescription($faker->realText(200));

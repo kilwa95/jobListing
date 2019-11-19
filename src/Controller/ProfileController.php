@@ -4,7 +4,8 @@ namespace App\Controller;
 
 
 
-use App\Repository\UserRepository;
+use App\Entity\Location;
+use App\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,14 +18,16 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProfileController extends AbstractController
 {
+
+
     /**
-     * @Route("/profile", name="user_profile")
+     * @Route("/profile/cv/{id}", name = "cv_show")
      */
 
-    public function index()
+    public function showCv(User $user)
     {
-
-        return $this->render('profile/index.html.twig');
-
+       return $this->render('profile/cv.html.twig', [
+           'user' => $user,
+       ]);
     }
 }

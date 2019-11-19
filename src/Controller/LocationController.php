@@ -42,7 +42,7 @@ class LocationController extends AbstractController
             $entityManager->persist($location);
             $entityManager->flush();
 
-            return $this->redirectToRoute('location_index');
+            return $this->redirectToRoute('cv_show',['id' => $user->getId()]);
         }
 
         return $this->render('location/new.html.twig', [

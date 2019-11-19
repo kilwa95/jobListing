@@ -12,8 +12,7 @@
     <meta name="description" content="">
     <!-- Meta Keyword -->
     <meta name="keywords" content="">
-    <!-- meta character set -->
-    <meta charset="UTF-8">
+
 
     {% block stylesheets %}
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
@@ -26,6 +25,8 @@
         <link rel="stylesheet" href="{{ asset('asset/css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ asset('asset/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('asset/img/fav.png') }}">
+
+
 
 
     {% endblock %}
@@ -49,20 +50,10 @@
                             <li><a href="{{ path('offre_add') }}">post Job</a></li>
                         {% endif %}
 
-                        {% if is_granted('ROLE_CANDIDAT')  %}
-                            <li class="menu-has-children"><a href="">add Cv</a>
-                                <ul>
-                                    <li><a href="{{ path('experience_show', {'id': app.user.id}) }}) }}">experience</a></li>
-                                    <li><a href="{{ path('location_new') }}">Location</a></li>
-                                    <li><a href="{{ path('skill_new') }}">skilles</a></li>
-                                    <li><a href="{{ path('training_new') }}">trainig</a></li>
-                                </ul>
-                            </li>
-                        {% endif %}
                         <li class="menu-has-children"><a href="">{{ app.user.firstName }}</a>
                             <ul>
                                 {% if is_granted('ROLE_CANDIDAT')  %}
-                                <li><a href="{{ path('user_profile') }}">profile</a></li>
+'                                 <li><a href="{{ path('cv_show' , {'id': app.user.id}) }}) }}">cv</a></li>
                                 {% endif %}
                                 <li><a href="{{ path('user_logout') }}">logout</a></li>
 
@@ -75,14 +66,7 @@
 
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="{{ path('app_homepage') }}">Home</a></li>
-                        <li class="menu-has-children"><a href="">add Cv</a>
-                            <ul>
-                                <li><a href="{{ path('experience_new') }}">experience</a></li>
-                                <li><a href="{{ path('location_new') }}">Location</a></li>
-                                <li><a href="{{ path('skill_new') }}">skilles</a></li>
-                                <li><a href="{{ path('training_new') }}">trainig</a></li>
-                            </ul>
-                        </li>
+
                         <li><a href="{{ path('offre_add') }}">post Job</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a class="ticker-btn" href="{{ path('user_register') }}">Signup</a></li>
@@ -100,10 +84,6 @@
         </div>
     </div>
 </header><!-- #header -->
-
-
-
-
 
 
 
