@@ -6,6 +6,7 @@ use App\Entity\Experience;
 use App\Entity\Ville;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,7 @@ class ExperienceType extends AbstractType
         $builder
             ->add('JobTitle')
             ->add('companyName')
-            ->add('periodeAt')
+            ->add('periodeAt',DateType::class)
             ->add('description')
             ->add('ville',EntityType::class,[
                 'class' => Ville::class,

@@ -18,13 +18,13 @@ easy_admin:
           icon: 'newspaper-o'
           children:
             - {entity: 'Experience', icon: 'tag'}
-            - {entity: 'Location', icon: 'tag'}
             - {entity: 'Skill', icon: 'tag'}
             - {entity: 'Training' , icon: 'tag'}
 
-        - label: 'Offre'
+        - label: 'job'
           icon: 'th-list'
           children:
+            - {entity: 'Offre', icon: 'inbox'}
             - {entity: 'Category', icon: 'inbox'}
             - {entity: 'typeEmploi', icon: 'inbox'}
 
@@ -66,22 +66,98 @@ easy_admin:
 
         Offre:
           class: App\Entity\Offre
-        Location:
-          class: App\Entity\Location
+          list:
+            fields:
+              - id
+              - { property: 'nomEntreprise', type: 'text' }
+              - { property: 'IntiuleDePost', type: 'text' }
+              - { property: 'lieu', type: 'text' }
+              - { property: 'taille', type: 'text' }
+            actions:
+              - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+              - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+              - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
+
+
+
         Experience:
           class: App\Entity\Experience
+          list:
+            fields:
+              - id
+              - { property: 'JobTitle', type: 'text' }
+              - { property: 'companyName', type: 'text' }
+              - { property: 'ville', type: 'text' }
+              - { property: 'description', type: 'text' }
+
+            actions:
+              - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+              - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+              - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
+
         Skill:
           class: App\Entity\Skill
+          list:
+            fields:
+              - id
+              - { property: 'skille', type: 'text' }
+              - { property: 'expertise', type: 'text' }
+
+            actions:
+              - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+              - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+              - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
+
+
         Training:
           class: App\Entity\Training
+          list:
+            fields:
+              - id
+              - { property: 'diplome', type: 'text' }
+              - { property: 'ecole', type: 'text' }
+              - { property: 'domaine', type: 'text' }
+              - { property: 'ville', type: 'text' }
+
+            actions:
+              - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+              - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+              - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
+
         Ville:
           class: App\Entity\Ville
-
+          list:
+              fields:
+                - id
+                - { property: 'ville', type: 'text' }
+              actions:
+                - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+                - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+                - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
 
         Category:
           class: App\Entity\Category
+          list:
+            fields:
+              - id
+              - { property: 'nom', type: 'text' }
+            actions:
+              - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+              - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+              - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
+
+
         typeEmploi:
           class: App\Entity\typeEmploi
+          list:
+            fields:
+              - id
+              - { property: 'nom', type: 'text' }
+            actions:
+              - {name: 'edit' , icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+              - {name: 'delete' , icon: 'trash', label: false, css_class: 'btn btn-danger'}
+              - { name: 'show', icon: 'info-circle', label: '',css_class: 'btn btn-success' }
+
 
 
 

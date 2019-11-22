@@ -69,10 +69,7 @@ class User implements UserInterface
      */
     private $training;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Location", inversedBy="users")
-     */
-    private $location;
+
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="user")
@@ -93,6 +90,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adresse;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $postalCode;
 
 
 
@@ -284,17 +286,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getLocation(): ?Location
-    {
-        return $this->location;
-    }
 
-    public function setLocation(?Location $location): self
-    {
-        $this->location = $location;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Experience[]
@@ -381,6 +373,18 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->getEmail()?:$this->getFirstName()?:$this->getLastName();
+    }
+
+    public function getPostalCode(): ?int
+    {
+        return $this->postalCode;
+    }
+
+    public function setPostalCode(int $postalCode): self
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
     }
 
 

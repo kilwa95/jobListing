@@ -13,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Offre
 {
 
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -78,6 +80,7 @@ class Offre
     public function __construct()
     {
         $this->candidats = new ArrayCollection();
+        $this->publishedAt = new  \DateTime('now');
     }
 
 

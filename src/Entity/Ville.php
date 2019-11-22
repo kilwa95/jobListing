@@ -23,10 +23,7 @@ class Ville
      */
     private $ville;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Location", mappedBy="ville")
-     */
-    private $locations;
+
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="ville")
@@ -71,36 +68,9 @@ class Ville
         return (string) $this->getVille();
     }
 
-    /**
-     * @return Collection|Location[]
-     */
-    public function getLocations(): Collection
-    {
-        return $this->locations;
-    }
 
-    public function addLocation(Location $location): self
-    {
-        if (!$this->locations->contains($location)) {
-            $this->locations[] = $location;
-            $location->setVille($this);
-        }
 
-        return $this;
-    }
 
-    public function removeLocation(Location $location): self
-    {
-        if ($this->locations->contains($location)) {
-            $this->locations->removeElement($location);
-            // set the owning side to null (unless already changed)
-            if ($location->getVille() === $this) {
-                $location->setVille(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Experience[]

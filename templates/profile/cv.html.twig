@@ -21,7 +21,7 @@
         <h1>coordonées</h1><br>
     </div>
 
-    <div class="container">
+    <div class="container card">
         <table class="table">
             <tbody>
             <tr>
@@ -52,46 +52,15 @@
                 <td>{{ app.user.adresse}}</td>
             </tr>
 
+
+            <tr>
+                <th>postalCode</th>
+                <td>{{ app.user.postalCode}}</td>
+            </tr>
+
             </tbody>
-        </table><br>
-    </div>
-
-    <div class="container">
-        <h1>Location</h1><br>
-        <a class="btn btn-primary fa fa-plus-square  " href="{{ path('location_new' )}}"></a><br><br>
-
-        <div class="container">
-            <table class="table">
-                <tbody>
-                <tr>
-                    {% if user.location is not null %}
-                        <th>adresse</th>
-                        <td>{{ user.location.adresse}}</td>
-
-                    {% endif %}
-                </tr>
-
-                <tr>
-                    {% if user.location is not null %}
-                        <th>postalCode</th>
-                        <td>{{ user.location.postalCode}}</td>
-                    {% endif %}
-
-                </tr>
-
-
-                <tr>
-                    {% if user.location is not null %}
-                        <th>ville</th>
-                        <td>{{ user.location.ville}}</td>
-                    {% endif %}
-
-                </tr>
-
-                </tbody>
-            </table><br>
-        </div>
-    </div>
+        </table>
+    </div><br><br>
 
 
     <div class="container">
@@ -100,7 +69,7 @@
     </div>
     {% for experience in user.Exprience %}
 
-    <div class="container">
+    <div class="container card">
         <table class="table">
             <tbody>
             <tr>
@@ -127,7 +96,7 @@
             </tr>
             </tbody>
         </table><br>
-    </div>
+    </div><br><br>
 
     {% endfor %}
 
@@ -140,7 +109,7 @@
     </div>
         {% for training in user.training %}
 
-            <div class="container">
+            <div class="container card">
                 <table class="table">
                     <tbody>
                     <tr>
@@ -174,7 +143,7 @@
                     </tr>
                     </tbody>
                 </table><br>
-            </div>
+            </div><br><br>
 
         {% endfor %}
 
@@ -187,7 +156,7 @@
     </div>
     {% for skill in user.skilles %}
 
-        <div class="container">
+        <div class="container card">
             <table class="table">
                 <tbody>
                 <tr>
@@ -206,7 +175,7 @@
                 </tr>
                 </tbody>
             </table><br>
-        </div>
+        </div><br><br>
 
     {% endfor %}
 
