@@ -5,9 +5,13 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\LoginCandidatAuthenticator;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\NamedAddress;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
@@ -35,8 +39,9 @@ class UserController extends AbstractController
 
     /**
      * @Route("/user/register", name="user_register")
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginCandidatAuthenticator $authenticator): Response
+    public function register(Request $request,MailerInterface $mailer, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginCandidatAuthenticator $authenticator): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -54,6 +59,19 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+
+            $email = (new TemplatedEmail())
+                ->from(new NamedAddress('khaled.abdulhalim@edu.ecetech.fr', 'The Space Bar'))
+                ->to(new NamedAddress($user->getEmail(), $user->getFirstName()))
+                ->subject('welcame in my website')
+                ->htmlTemplate('email/welcome.html.twig')
+                ->context([
+                    //'user' => $user,
+                ]);
+
+
+            $mailer->send($email);
+
 
             $this->redirectToRoute('app_homepage');
 

@@ -160,6 +160,21 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v4.0.0"
     },
+    "knplabs/knp-snappy": {
+        "version": "v1.1.0"
+    },
+    "knplabs/knp-snappy-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "c81bdcf4a9d4e7b1959071457f9608631865d381"
+        },
+        "files": [
+            "config/packages/knp_snappy.yaml"
+        ]
+    },
     "knplabs/knp-time-bundle": {
         "version": "v1.9.1"
     },
@@ -392,6 +407,18 @@
     },
     "symfony/intl": {
         "version": "v4.3.5"
+    },
+    "symfony/mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "15658c2a0176cda2e7dba66276a2030b52bd81b2"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
     },
     "symfony/maker-bundle": {
         "version": "1.0",

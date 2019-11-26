@@ -18,10 +18,11 @@
     </section><br><br>
 
     <div class="container">
+        <a class="btn btn-primary" href="{{ path('cv_pdf') }}">generated a pdf</a>
         <h1>coordonées</h1><br>
     </div>
 
-    <div class="container card">
+    <div class="container card card-footer">
         <table class="table">
             <tbody>
             <tr>
@@ -58,6 +59,10 @@
                 <td>{{ app.user.postalCode}}</td>
             </tr>
 
+            <tr>
+                <td> <a class=" btn btn-success fa fa-pencil fa-2x" href="{{ path('cv_edit', {'id': app.user.id}) }}"></a>  </td>
+            </tr>
+
             </tbody>
         </table>
     </div><br><br>
@@ -69,7 +74,7 @@
     </div>
     {% for experience in user.Exprience %}
 
-    <div class="container card">
+    <div class="container card card-header ">
         <table class="table">
             <tbody>
             <tr>
@@ -109,7 +114,7 @@
     </div>
         {% for training in user.training %}
 
-            <div class="container card">
+            <div class="container card card-header">
                 <table class="table">
                     <tbody>
                     <tr>
@@ -156,7 +161,7 @@
     </div>
     {% for skill in user.skilles %}
 
-        <div class="container card">
+        <div class="container card card-footer">
             <table class="table">
                 <tbody>
                 <tr>

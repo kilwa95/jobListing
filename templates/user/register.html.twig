@@ -71,10 +71,17 @@
                                 {{ form_help(registrationForm.adresse) }}
                                 {{ form_errors(registrationForm.adresse) }}
 
+
+                                {{ form_label(registrationForm.postalCode) }}
+                                {{ form_widget(registrationForm.postalCode, {'attr': {'class': 'common-input mb-20 form-control'}}) }}
+                                {{ form_help(registrationForm.postalCode) }}
+                                {{ form_errors(registrationForm.postalCode) }}a
+
                                 {{ form_label(registrationForm.roles) }}
                                 {{ form_widget(registrationForm.roles, {'attr': {'class': 'common-input mb-20 form-control'}}) }}
                                 {{ form_help(registrationForm.roles) }}
                                 {{ form_errors(registrationForm.roles) }}
+
 
 
                                 {{ form_label(registrationForm.agreeTerms) }}

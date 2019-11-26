@@ -141,12 +141,7 @@
                     <div class="single-post d-flex flex-row">
 
                         <div class="thumb">
-                            <ul class="tags">
-                                <li>
-                                    <a href="#">{{ offre.Category.nom}}</a>
-                                </li>
 
-                            </ul>
                         </div>
                         <div class="details">
                             <div class="title d-flex flex-row justify-content-between">
@@ -158,6 +153,8 @@
                                     <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
                                     <button type="button" class="btn btn-dark "  data-toggle="modal" data-target="#exampleModal">Apply</button>
                                 </ul>
+
+
                             </div>
                             <p>
                                 {{ offre.description }}
@@ -168,6 +165,12 @@
 
                             <p class="address"><span class="lnr lnr-map"></span>  <strong>lieu</strong> : {{ offre.lieu }}</p>
                             <p class="address"><span class="lnr lnr-time"></span> {{ offre.publishedAt|date('Y-m-d') }}</p>
+                            <p><strong>Category </strong>: {{ offre.Category.nom}}</p>
+
+
+
+
+
                         </div>
                     </div>
 

@@ -23,34 +23,29 @@
     <!-- Start contact-page Area -->
     <section class="contact-page-area section-gap">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 d-flex flex-column">
-                    <a class="contact-btns" href="#">Submit Your CV</a>
-                    <a class="contact-btns" href="#">Post New Job</a>
-                </div>
+            <div class="row card card-header">
+
 
 
                 <div class="col-lg-8">
                     <h1>Post Job</h1> <br>
-                    {{ form_start(form, {'attr': {'class': 'form-area'}}) }}
+                    {{ form_start(form, {'attr': {'class': 'form-area '}}) }}
                     <div class="row">
                         <div class="col-lg-10 form-group">
 
+
                             {{ form_label(form.nom_entreprise) }}
                             {{ form_widget(form.nom_entreprise ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
-                            {{ form_help(form.nom_entreprise) }}
                             {{ form_errors(form.nom_entreprise) }}
 
                             {{ form_label(form.intiule_de_post) }}
                             {{ form_widget(form.intiule_de_post ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
-                            {{ form_help(form.intiule_de_post) }}
                             {{ form_errors(form.intiule_de_post) }}
 
 
 
                             {{ form_label(form.description) }}
                             {{ form_widget(form.description ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
-                            {{ form_help(form.description) }}
                             {{ form_errors(form.description) }}
 
 
@@ -58,23 +53,19 @@
 
                             {{ form_label(form.taille )}}
                             {{ form_widget(form.taille,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
-                            {{ form_help(form.taille) }}
                             {{ form_errors(form.taille) }}
 
                             {{ form_label(form.lieu) }}
                             {{ form_widget(form.lieu,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
-                            {{ form_help(form.lieu) }}
                             {{ form_errors(form.lieu) }}
 
 
                             {{ form_label(form.Category) }}
                             {{ form_widget(form.Category,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
-                            {{ form_help(form.Category) }}
                             {{ form_errors(form.Category) }}
 
                             {{ form_label(form.type_emploi) }}
                             {{ form_widget(form.type_emploi ,{'attr': {'class': 'common-input mb-20 form-control'}}) }}
-                            {{ form_help(form.type_emploi) }}
                             {{ form_errors(form.type_emploi) }}
 
                             {{ form_row(form.image, {
