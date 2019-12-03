@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Offre;
+use App\Entity\Searche;
+use App\Form\SearcheType;
 use App\Repository\CategoryRepository;
 use App\Repository\OffreRepository;
 use App\Repository\TypeEmploieRepository;
@@ -35,10 +38,35 @@ class IndexController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/searche",name="app_serache")
+     */
+
+    function Searche(Request $request,OffreRepository $offreRepository)
+    {
+        $offre = new Offre();
+        $form = $this->createForm(SearcheType::class);
+
+        if ($form->handleRequest($request)->isSubmitted()&& $form->isValid())
+        {
+            $resultats = $form->getData();
+
+            $offre = $offreRepository->searcheOffre($resultats);
+
+        }
+
+        return $this->render("index/searche.html.twig",[
+            'offre' => $offre,
+            'form' => $form->createView(),
+        ]);
+
+    }
+
+
+
 
     /**
      * @Route("/category/", name="category_fiche")
-
      */
 
     public function ficheCategorie(CategoryRepository $categoryRepository)

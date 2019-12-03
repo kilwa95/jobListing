@@ -36,6 +36,22 @@ class OffreRepository extends ServiceEntityRepository
         ;
     }
 
+    public function searcheOffre($resultats)
+    {
+        return $this->createQueryBuilder('o')
+            ->leftJoin('o.category','category')
+            ->Where('category.nom = :categoryNom')
+            ->setParameter('categoryNom',$resultats->getCategory()->getNom())
+            ->andWhere('o.nom_entreprise=:nomEntreprise')
+            ->setParameter('nomEntreprise',$resultats->getNomEntreprise())
+            ->leftJoin('o.type_emploi','typeEmploi')
+            ->andWhere('typeEmploi.nom = :typeEmploiName')
+            ->setParameter('typeEmploiName',$resultats->getTypeEmploi()->getNom())
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
 
     /**public function findSmallEntreprise(): ?Offre
