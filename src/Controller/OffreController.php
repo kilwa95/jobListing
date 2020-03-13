@@ -40,10 +40,10 @@ class OffreController extends AbstractController
 
              if ($uploadedFile) {
                 $newFilename = $uploaderHelper->uploadOffreImage($uploadedFile);
+
                 $offre->setImage($newFilename);
 
             }
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($offre);
             $entityManager->flush();

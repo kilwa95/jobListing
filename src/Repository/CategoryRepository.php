@@ -24,17 +24,6 @@ class CategoryRepository extends ServiceEntityRepository
    
 
 
-    public function findBycategory()
-    {
-
-        $qb = $this->createQueryBuilder('c')
-                   ->orderBy('c.id', 'DESC');
-
-        $query = $qb->getQuery();
-
-        return $query->execute();
-
-    }
 
 
 

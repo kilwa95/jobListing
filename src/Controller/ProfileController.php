@@ -31,6 +31,8 @@ class ProfileController extends AbstractController
        ]);
     }
 
+
+
     /**
      * @Route("/{id}/edit", name="cv_edit", methods={"GET","POST"})
      */

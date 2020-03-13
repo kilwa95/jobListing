@@ -53,6 +53,17 @@ class OffreRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findBycategory($id)
+    {
+        return $this->createQueryBuilder('o')
+            ->leftJoin('o.category','category')
+            ->andWhere('category.id= :id')
+            ->setParameter('id',$id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
     /**public function findSmallEntreprise(): ?Offre
     {

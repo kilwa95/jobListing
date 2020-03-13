@@ -36,6 +36,8 @@ class ExperienceController extends AbstractController
             $entityManager->persist($experience);
             $entityManager->flush();
 
+
+
             return $this->redirectToRoute('cv_show',['id' => $user->getId()]);
         }
 
@@ -67,7 +69,7 @@ class ExperienceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('experience_show',['id' => $user->getId()]);
+            return $this->redirectToRoute('cv_show',['id' => $user->getId()]);
         }
 
         return $this->render('experience/edit.html.twig', [

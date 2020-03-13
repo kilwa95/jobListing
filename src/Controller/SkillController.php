@@ -67,11 +67,13 @@ class SkillController extends AbstractController
     {
         $form = $this->createForm(SkillType::class, $skill);
         $form->handleRequest($request);
+        $user=$this->getUser();
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('skill_index');
+            return $this->redirectToRoute('cv_show',['id' => $user->getId()]);
         }
 
         return $this->render('skill/edit.html.twig', [

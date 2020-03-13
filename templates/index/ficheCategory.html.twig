@@ -15,12 +15,62 @@
             </div>
         </div>
     </section>
-    <!-- End banner Area -->
-    {% for offre in offres %}
 
-        {{ offre.taille }}
 
-    {% endfor %}
+
+
+
+
+    <!-- Start post Area -->
+    <section class="post-area section-gap">
+        <div class="container">
+            <div class="row justify-content-center d-flex">
+                <div class="col-lg-8 post-list">
+
+                    {% for offre in offres %}
+
+                        <div class="single-post d-flex flex-row">
+
+                            <div class="thumb">
+
+                            </div>
+                            <div class="details">
+                                <div class="title d-flex flex-row justify-content-between">
+                                    <div class="titles">
+                                        <a href="{{ path('offre_show', {'id':offre.id}) }}"><h4>{{ offre.IntiuleDePost }}</h4></a>
+                                        <h6>{{  offre.nomEntreprise }}</h6>
+                                    </div>
+                                    <ul class="btns">
+                                        <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+                                        <button type="button" class="btn btn-dark "  data-toggle="modal" data-target="#exampleModal">Apply</button>
+                                    </ul>
+
+
+                                </div>
+                                <p>
+                                    {{ offre.description }}
+                                </p>
+
+
+                                <h5>type job :{{offre.TypeEmploi.nom }}</h5>
+
+                                <p class="address"><span class="lnr lnr-map"></span>  <strong>lieu</strong> : {{ offre.lieu }}</p>
+                                <p class="address"><span class="lnr lnr-time"></span> {{ offre.publishedAt|date('Y-m-d') }}</p>
+                                <p><strong>Category </strong>: {{ offre.Category.nom}}</p>
+
+
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End post Area -->
+
 
 {% endblock %}
 

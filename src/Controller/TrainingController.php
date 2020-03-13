@@ -67,12 +67,12 @@ class TrainingController extends AbstractController
     {
         $form = $this->createForm(TrainingType::class, $training);
         $form->handleRequest($request);
+        $user=$this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('training_index');
-        }
+            return $this->redirectToRoute('cv_show',['id' => $user->getId()]);        }
 
         return $this->render('training/edit.html.twig', [
             'training' => $training,

@@ -66,15 +66,16 @@ class IndexController extends AbstractController
 
 
     /**
-     * @Route("/category/", name="category_fiche")
+     * @Route("/category/{id}", name="category_fiche")
      */
 
-    public function ficheCategorie(CategoryRepository $categoryRepository)
+    public function ficheCategorie(OffreRepository $offreRepository,$id)
     {
-        $category = $categoryRepository->findBycategory();
-        dd($category);
+        $offres = $offreRepository->findBycategory($id);
 
-       return $this->render("index/ficheCategory.html.twig");
+       return $this->render("index/ficheCategory.html.twig",[
+           'offres' => $offres,
+       ]);
     }
 
 

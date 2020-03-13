@@ -13,8 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Offre
 {
 
-
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

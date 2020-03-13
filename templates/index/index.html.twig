@@ -152,7 +152,7 @@
 
                         <ul class="cat-list">
                             {% for category in categories %}
-                                <li><a class="justify-content-between d-flex" href="{{ path('category_fiche') }}"><p>{{ category.nom }}</p><span></span></a></li>
+                                <li><a class="justify-content-between d-flex" href="{{ path('category_fiche', {'id':category.id}) }}"><p>{{ category.nom }}</p><span></span></a></li>
                             {% endfor %}
 
                         </ul>
